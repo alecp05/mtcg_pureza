@@ -2,12 +2,17 @@ package MCTG;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
         System.out.println("Welcome to MONSTER TRADING CARDS GAME - MTCG!");
 
-        Player player1 = new Player("Alec");
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Please enter a Username: ");
+        String userName = myObj.nextLine();
+
+        Player player1 = new Player(userName);
         Card[] cardsplayer1 = {new Card()};
         player1.setDeck(cardsplayer1);
 

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: PlayerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+PlayerTest.testGetCoins_shouldBe100()  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at PlayerTest.testGetCoins_shouldBe100(PlayerTest.java:18)
+
+PlayerTest.testGetElo_shouldBeBronze()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at PlayerTest.testGetElo_shouldBeBronze(PlayerTest.java:24)
+

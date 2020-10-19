@@ -8,12 +8,12 @@ public class Player {
     private Card[] cardStack;
     private int coins;
     private Card[] deck;
-    private int elo;
+    private String elo;
 
     public Player(String username){
         this.username = username;
         this.coins = 100;
-        this.elo = 5;
+        this.elo = "Bronze";
     }
 
     public String getUsername() {
@@ -24,7 +24,7 @@ public class Player {
         return coins;
     }
 
-    public int getElo() {
+    public String getElo() {
         return elo;
     }
 
