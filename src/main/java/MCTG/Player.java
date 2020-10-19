@@ -1,5 +1,7 @@
 package MCTG;
 
+import java.util.Arrays;
+
 public class Player {
     private String username;
     private String password;
@@ -24,5 +26,15 @@ public class Player {
 
     public int getElo() {
         return elo;
+    }
+
+    public void setDeck(Card[] deck) {
+        this.deck = deck;
+    }
+
+    public void showcards(){
+       for(int i=0; i<this.deck.length; i++){
+           System.out.println(this.deck[i].getCardName());
+       }
     }
 }
