@@ -1,5 +1,8 @@
 package MCTG;
 
+import MCTG.Enums.CardType;
+import MCTG.Enums.ElementType;
+
 public class Card {
     private String cardName;
     private int damage;

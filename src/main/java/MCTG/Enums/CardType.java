@@ -1,4 +1,4 @@
-package MCTG;
+package MCTG.Enums;
 
 public enum CardType {
     monster,

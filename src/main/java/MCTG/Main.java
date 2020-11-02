@@ -1,5 +1,7 @@
 package MCTG;
 
+import MCTG.Cards.Dragon;
+
 import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,6 +21,10 @@ public class Main {
         System.out.println("Player: " +player1.getUsername());
         System.out.println("Deck: ");
         player1.showcards();
+
+        Dragon dragon1 = new Dragon();
+        System.out.println(dragon1.getElementType());
+
 
 
         //System.out.println(player1.getCoins());

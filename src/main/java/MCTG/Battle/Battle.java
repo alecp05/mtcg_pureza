@@ -1,4 +1,6 @@
-package MCTG;
+package MCTG.Battle;
+
+import MCTG.Player;
 
 public class Battle {
     private Player player1;
