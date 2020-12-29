@@ -1,13 +1,16 @@
 package MCTG;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Player {
     private String username;
     private String password;
-    private Card[] cardStack;
+    //private Card[] cardStack;
+    private LinkedList<Card> cardStack;
     private int coins;
-    private Card[] deck;
+    //private Card[] deck;
+    private LinkedList<Card> deck;
     private String elo;
 
     public Player(String username){
@@ -28,13 +31,18 @@ public class Player {
         return elo;
     }
 
-    public void setDeck(Card[] deck) {
-        this.deck = deck;
+    public void setDeck(LinkedList<Card> deck1) {
+        this.deck = deck1;
     }
 
-    public void showcards(){
-       for(int i=0; i<this.deck.length; i++){
+    public void showCards(){
+       /*for(int i=0; i<this.deck.length; i++){
            System.out.println(this.deck[i].getCardName());
        }
+       */
+        for (Card element : this.deck){
+            System.out.println(element.getCardName() + "\n");
+        }
+
     }
 }
