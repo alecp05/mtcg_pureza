@@ -1,6 +1,6 @@
 package MCTG.Shop;
 
-import MCTG.Card;
+import MCTG.Cards.Card;
 
 import java.util.LinkedList;
 

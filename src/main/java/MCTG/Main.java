@@ -47,8 +47,8 @@ public class Main {
         ServerSocket serverSocket;
         try {
             //ready to listen incoming connection on port 8080
-            serverSocket = new ServerSocket(8080);
-            System.out.println("Listening for connection on port 8080 ...");
+            serverSocket = new ServerSocket(10001);
+            System.out.println("Listening for connection on port 10001 ...");
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -104,7 +104,7 @@ public class Main {
             System.out.println(requestClient.getPayload());
 
         RequestHandler handlingR = new RequestHandler();
-        handlingR.pathsHandling(requestClient.getPath(),requestClient.getMethod(),requestClient.getPayload(),client);
+        handlingR.pathsHandling(requestClient.getPath(),requestClient.getMethod(),requestClient.getPayload(),requestClient.getHeaders(),client);
 
 
         client.close();

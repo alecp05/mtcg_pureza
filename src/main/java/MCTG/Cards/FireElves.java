@@ -1,7 +1,5 @@
 package MCTG.Cards;
 
-import MCTG.Card;
-
-public class FireElves extends Card {
+public class FireElves  {
     public boolean evadeDragonAttack(){return true;}
 }

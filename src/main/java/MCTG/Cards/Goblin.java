@@ -1,7 +1,5 @@
 package MCTG.Cards;
 
-import MCTG.Card;
-
-public class Goblin extends Card {
+public class Goblin  {
     public boolean scaredOfDragon(){return true;}
 }

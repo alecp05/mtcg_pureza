@@ -1,14 +1,10 @@
 package MCTG.Users;
 
-import MCTG.Card;
-
-import java.util.LinkedList;
-
 public class User {
     private String Username;
     private String Password;
     private int Coins;
-    private String Elo;
+    private int Elo;
     private String Bio;
     private String Image;
 
@@ -16,7 +12,7 @@ public class User {
         this.Username = name;
         this.Password = password;
         this.Coins = 20;
-        this.Elo = "Bronze";
+        this.Elo = 100;
     }
 
     public String getUsername() {
@@ -31,7 +27,7 @@ public class User {
         return Coins;
     }
 
-    public String getElo() {
+    public int getElo() {
         return Elo;
     }
 

@@ -1,7 +1,5 @@
 package MCTG.Cards;
 
-import MCTG.Card;
-
-public class Wizard extends Card {
+public class Wizard {
     public boolean controlOrk(){return true;}
 }

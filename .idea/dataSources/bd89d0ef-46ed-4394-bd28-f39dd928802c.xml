@@ -784,18 +784,17 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1609259099</StartupTime>
+      <StartupTime>1609336650</StartupTime>
     </root>
     <database id="2" parent="1" name="mtcgDatabase">
       <ObjectId>16418</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>580</IntrospectionStateNumber>
+      <IntrospectionStateNumber>609</IntrospectionStateNumber>
     </database>
     <database id="3" parent="1" name="postgres">
       <ObjectId>13442</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>577</IntrospectionStateNumber>
       <Current>1</Current>
     </database>
     <database id="4" parent="1" name="testing">
@@ -870,7 +869,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>581</IntrospectionStateNumber>
+      <IntrospectionStateNumber>610</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="19" parent="2" name="plpgsql">
@@ -995,7 +994,6 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>578</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="34" parent="3" name="adminpack">
@@ -1103,51 +1101,111 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <table id="47" parent="18" name="users">
-      <ObjectId>16425</ObjectId>
+    <table id="47" parent="18" name="packages">
+      <ObjectId>16449</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>570</StateNumber>
+      <StateNumber>608</StateNumber>
     </table>
-    <column id="48" parent="47" name="username">
+    <table id="48" parent="18" name="users">
+      <ObjectId>16433</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>596</StateNumber>
+    </table>
+    <column id="49" parent="47" name="packageid">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>608</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="50" parent="47" name="cardid">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>608</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="51" parent="47" name="cardname">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>608</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="52" parent="47" name="damage">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>608</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="53" parent="47" name="elementtype">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>608</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="54" parent="47" name="cardtype">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>608</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="55" parent="47" name="packages_pkey">
+      <ObjectId>16455</ObjectId>
+      <StateNumber>608</StateNumber>
+      <ColNames>cardid</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>100</CollationIds>
+      <CollationNames>default</CollationNames>
+      <ClassIds>3126</ClassIds>
+    </index>
+    <key id="56" parent="47" name="packages_pkey">
+      <ObjectId>16456</ObjectId>
+      <StateNumber>608</StateNumber>
+      <ColNames>cardid</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>packages_pkey</UnderlyingIndexName>
+    </key>
+    <column id="57" parent="48" name="username">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>570</StateNumber>
+      <StateNumber>596</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="49" parent="47" name="password">
+    <column id="58" parent="48" name="password">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>570</StateNumber>
+      <StateNumber>596</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="50" parent="47" name="coins">
+    <column id="59" parent="48" name="coins">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>570</StateNumber>
+      <StateNumber>596</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="51" parent="47" name="elo">
+    <column id="60" parent="48" name="elo">
       <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <StateNumber>570</StateNumber>
-      <TypeId>1043</TypeId>
+      <DataType>integer|0s</DataType>
+      <StateNumber>596</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <column id="52" parent="47" name="bio">
+    <column id="61" parent="48" name="bio">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>570</StateNumber>
+      <StateNumber>596</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="53" parent="47" name="image">
+    <column id="62" parent="48" name="image">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>570</StateNumber>
+      <StateNumber>596</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="54" parent="47" name="users_pkey">
-      <ObjectId>16431</ObjectId>
-      <StateNumber>570</StateNumber>
+    <index id="63" parent="48" name="users_pkey">
+      <ObjectId>16439</ObjectId>
+      <StateNumber>596</StateNumber>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1156,9 +1214,9 @@ UC/10
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="55" parent="47" name="users_pkey">
-      <ObjectId>16432</ObjectId>
-      <StateNumber>570</StateNumber>
+    <key id="64" parent="48" name="users_pkey">
+      <ObjectId>16440</ObjectId>
+      <StateNumber>596</StateNumber>
       <ColNames>username</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>

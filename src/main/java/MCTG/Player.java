@@ -1,6 +1,7 @@
 package MCTG;
 
-import java.util.Arrays;
+import MCTG.Cards.Card;
+
 import java.util.LinkedList;
 
 public class Player {
@@ -39,10 +40,10 @@ public class Player {
        /*for(int i=0; i<this.deck.length; i++){
            System.out.println(this.deck[i].getCardName());
        }
-       */
+
         for (Card element : this.deck){
             System.out.println(element.getCardName() + "\n");
-        }
+        }*/
 
     }
 }

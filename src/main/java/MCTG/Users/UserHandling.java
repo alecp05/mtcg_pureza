@@ -47,7 +47,7 @@ public class UserHandling {
                 statement.setString(1, user1.getUsername());
                 statement.setString(2, user1.getPassword());
                 statement.setInt(3, user1.getCoins());
-                statement.setString(4, user1.getElo());
+                statement.setInt(4, user1.getElo());
                 statement.execute();
                 return 0;
             } catch (SQLException ex) {
@@ -77,7 +77,7 @@ public class UserHandling {
             while(myRs.next()) {
                 String name = myRs.getString(1);
                 String pwd = myRs.getString(2);
-                System.out.println(name+pwd);
+                //System.out.println(name+pwd);
                 if(name.equals(usernameTemp) && pwd.equals(passwordTemp)) {
                     counter++;
                 }
