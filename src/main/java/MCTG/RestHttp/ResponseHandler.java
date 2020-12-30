@@ -67,7 +67,27 @@ public class ResponseHandler {
                 + "Accept-Ranges: bytes \r\n"
                 + "Server: Alec \r\n"
                 + "Status: 404 \r\n"
-                + "Content-Lenght: 32 \r\n\r\n" + "You are not allowed to add Packages/ Wrong Token";
+                + "Content-Lenght: 32 \r\n\r\n" + "You are not allowed to add Packages/ Wrong Token...";
         return httpResponse;
     }
+    public String responseBuyingPackagePOST(){
+        String response = "POST Request SUCCESS\nPackage is now in Users collection";
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 61 \r\n\r\n" + response;
+        return httpResponse;
+    }
+    public String responseErrorBuyingPackagePOST(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "User has no coins left OR no more Packages are available...";
+        return httpResponse;
+    }
+
 }

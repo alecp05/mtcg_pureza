@@ -16,7 +16,7 @@ public class RequestHandler {
         ResponseHandler responder = new ResponseHandler();
 
             //USER REGISTRATION AND LOGIN
-            if(path.equals("/users")){
+            if(path.equals("/users") && method.equals("POST")){
 
                 int number = user.registration(payload);
 
@@ -25,7 +25,7 @@ public class RequestHandler {
                 else if (number == 1)
                     client.getOutputStream().write(responder.responseErrorRegistrationPOST().getBytes(StandardCharsets.UTF_8));
             }
-            else if(path.equals("/sessions")){
+            else if(path.equals("/sessions")&& method.equals("POST")){
                 int number = user.login(payload);
 
                 if(number == 0)
@@ -34,7 +34,7 @@ public class RequestHandler {
                     client.getOutputStream().write(responder.responseErrorLoginPOST().getBytes(StandardCharsets.UTF_8));
             }
             //PACKAGES
-            else if(path.equals("/packages")){
+            else if(path.equals("/packages")&& method.equals("POST")){
                 System.out.println(headers.get(3));
                 //check Token, if its admin
                 if(headers.get(3).contains("admin-mtcgToken")){
@@ -47,6 +47,16 @@ public class RequestHandler {
                     //if not admin
                     client.getOutputStream().write(responder.responseErrorTokenPackagePOST().getBytes(StandardCharsets.UTF_8));
                 }
+
+            }
+            else if(path.equals("/transactions/packages")&& method.equals("POST")){
+                String authToken = headers.get(3);
+                int number = packages.buyPackages(payload,authToken);
+
+                if(number == 0)
+                    client.getOutputStream().write(responder.responseBuyingPackagePOST().getBytes(StandardCharsets.UTF_8));
+                else if (number == 1)
+                    client.getOutputStream().write(responder.responseErrorBuyingPackagePOST().getBytes(StandardCharsets.UTF_8));
 
             }
 

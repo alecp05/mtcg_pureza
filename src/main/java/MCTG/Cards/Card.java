@@ -4,32 +4,37 @@ import MCTG.Enums.CardType;
 import MCTG.Enums.ElementType;
 
 public class Card {
-    private int Id;
-    private String Name;
-    private int Damage;
-    private ElementType elementType;
-    private CardType cardType;
+    private String cardId;
+    private String cardName;
+    private int damage;
+    private String elementType;
+    private String cardType;
 
-    /*public Card(int Id, String Name, int Damage){
-        this.Id = Id;
-        this.Name = Name;
-        this.Damage = Damage;
-    }*/
-    public Card(){
-        super();
+    public Card(String Id, String Name, int Damage, String eType, String cType){
+        this.cardId = Id;
+        this.cardName = Name;
+        this.damage = Damage;
+        this.elementType = eType;
+        this.cardType = cType;
     }
 
-    public int getId() {
-        return Id;
+    public String getCardId() {
+        return cardId;
     }
 
-    public String getName() {
-        return Name;
+    public String getCardName() {
+        return cardName;
     }
 
     public int getDamage() {
-        return Damage;
+        return damage;
     }
 
+    public String getElementType() {
+        return elementType;
+    }
 
+    public String getCardType() {
+        return cardType;
+    }
 }
