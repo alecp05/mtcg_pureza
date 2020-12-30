@@ -2,6 +2,7 @@ package MCTG;
 
 import MCTG.Cards.Dragon;
 import MCTG.RestHttp.RequestContext;
+import MCTG.RestHttp.RequestHandler;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
@@ -85,10 +86,26 @@ public class Main {
         //--------------------------------
         //which Request is being received
         String usedMethod = requestClient.getMethod();
-        if(usedMethod.equals("POST")){
-            System.out.println("hellooo");
+
+
             System.out.println(requestClient.getPath());
-        }
+
+            int counter = Integer.parseInt(requestClient.getContentLength());
+            int value;
+            //saving payload by characters
+            for (int j = 0; j < counter; j++) {
+                value = breader.read();
+                content.append((char) value);
+            }
+            //payload being set
+            requestClient.setPayload(content.toString());
+
+            System.out.println("Message:");
+            System.out.println(requestClient.getPayload());
+
+        RequestHandler handlingR = new RequestHandler();
+        handlingR.pathsHandling(requestClient.getPath(),requestClient.getMethod(),requestClient.getPayload(),client);
+
 
         client.close();
     }
