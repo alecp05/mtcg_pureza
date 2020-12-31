@@ -158,7 +158,7 @@ public class PackageHandler {
                 String cardName = myRs3.getString(3);
                 int damage = myRs3.getInt(4);
                 String elementType = myRs3.getString(5);
-                String cardType = myRs3.getString(5);
+                String cardType = myRs3.getString(6);
 
                 Card card1 = new Card(carId,cardName,damage,elementType,cardType);
 
@@ -200,7 +200,6 @@ public class PackageHandler {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
 
         return 0;
     }
