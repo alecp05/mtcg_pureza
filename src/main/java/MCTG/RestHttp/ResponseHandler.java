@@ -154,6 +154,46 @@ public class ResponseHandler {
         return httpResponse;
     }
 
+    public String responseUserDataGET(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 0 \r\n\r\n" + "The Token has been approved... This is the Users Data:\n";
+        return httpResponse;
+    }
+
+    public String responseErrorUserDataGETAndPOST(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "The wrong Token has been given...";
+        return httpResponse;
+    }
+
+    public String responseUserDataPUT(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 0 \r\n\r\n" + "Users Data has been edited and updated\n";
+        return httpResponse;
+    }
+
+    public String responseErrorStats(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "No Token is given... Try again";
+        return httpResponse;
+    }
+
     public String testingJson() throws JsonProcessingException {
         JSONObject jo = new JSONObject();
         jo.put("firstName", "John");

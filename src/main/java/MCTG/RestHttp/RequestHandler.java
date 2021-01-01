@@ -13,6 +13,7 @@ import java.util.List;
 public class RequestHandler {
 
     public static void pathsHandling(String path, String method, String payload, List<String> headers, Socket client) throws IOException {
+
         UserHandling user = new UserHandling();
         PackageHandler packages = new PackageHandler();
         CardHandler cards = new CardHandler();
@@ -84,7 +85,9 @@ public class RequestHandler {
                     client.getOutputStream().write(responder.responseErrorShowCardsDecksGet().getBytes(StandardCharsets.UTF_8));
 
 
-            }else if(path.contains("/deck")&& method.equals("GET")){
+            }
+            //showing the deck  of the User
+            else if(path.contains("/deck")&& method.equals("GET")){
 
                 int checkDeck = 0;
 
@@ -110,7 +113,9 @@ public class RequestHandler {
                     }
                 }
 
-            }else if(path.equals("/deck")&& method.equals("PUT")){
+            }
+            //set the deck with 4 cards of the Users Input
+            else if(path.equals("/deck")&& method.equals("PUT")){
                 int number = deck.configureCardsInDeck(payload,headers);
 
                 if(number == 0)
@@ -120,6 +125,55 @@ public class RequestHandler {
                 else
                     client.getOutputStream().write(responder.responseError2ConfDeckPUT().getBytes(StandardCharsets.UTF_8));
             }
+            //show User Data
+            else if(path.contains("/users")&& method.equals("GET")){
+                int checkToken = user.checkTokenForUserData1(path,headers);
+
+                if(checkToken == 0){
+                    //if Token and Header are the same
+                    System.out.println("Token Check successful...");
+
+                    String allData = user.showUserData(headers);
+                    String httpResponse = responder.responseUserDataGET() + allData;
+                    client.getOutputStream().write(httpResponse.getBytes(StandardCharsets.UTF_8));
+
+                }else{
+                    // sendError
+                    System.out.println("False Token...");
+                    client.getOutputStream().write(responder.responseErrorUserDataGETAndPOST().getBytes(StandardCharsets.UTF_8));
+                }
+
+            }
+            //edit User Data
+            else if(path.contains("/users")&& method.equals("PUT")){
+                int checkToken2 = user.checkTokenForUserData2(path,headers);
+
+                if(checkToken2 == 0){
+                    //if Token and Header are the same
+                    System.out.println("Token Check successful...");
+                    user.editUserData(payload,headers);
+                    client.getOutputStream().write(responder.responseUserDataPUT().getBytes(StandardCharsets.UTF_8));
+
+
+                }else{
+                    // sendError
+                    System.out.println("False Token...");
+                    client.getOutputStream().write(responder.responseErrorUserDataGETAndPOST().getBytes(StandardCharsets.UTF_8));
+                }
+
+            }
+            //edit User Data
+            else if(path.equals("/stats")&& method.equals("GET")){
+
+                //check if Token is given (Header)
+                if(headers.size()!=2){
+                    System.out.println("stats");
+                }else{
+                    client.getOutputStream().write(responder.responseErrorStats().getBytes(StandardCharsets.UTF_8));
+                }
+
+            }
+
             else if(path.equals("/TESTING")&& method.equals("POST")){
                 client.getOutputStream().write(responder.testingJson().getBytes(StandardCharsets.UTF_8));
                 client.getOutputStream().flush();
