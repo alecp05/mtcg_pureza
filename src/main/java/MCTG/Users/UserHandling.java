@@ -165,7 +165,7 @@ public class UserHandling {
                 // pretty print
                 String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(user01);
                 if(counter == 0) {
-                    allDataOfUser = json;
+                    allDataOfUser = nameTemp + " Data:\n" + json;
                     counter++;
                 }
                 else {

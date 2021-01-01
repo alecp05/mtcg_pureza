@@ -43,7 +43,7 @@ public class CardHandler {
                 // pretty print
                 String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(oneCard);
                 if(counter == 0) {
-                    allCards = json;
+                    allCards = nameTemp + " Cards:\n" + json;
                     counter++;
                 }
                 else {

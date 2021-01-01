@@ -173,7 +173,7 @@ public class DeckHandler {
                 // pretty print
                 String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(oneCard);
                 if(counter == 0) {
-                    allCards = json;
+                    allCards = nameTemp + " Deck:\n" + json;
                     counter++;
                 }
                 else {
@@ -217,7 +217,7 @@ public class DeckHandler {
                 String together = "CardId: " + carId + "\nCardName: " + cardName + "\nDamage: " + damage + "\nElementType: " + elementType + "\nCardType: " + cardType;
 
                 if(counter == 0) {
-                    allCards = "\n" + together;
+                    allCards = "\n" + nameTemp + " Deck:\n" + together;
                     counter++;
                 }
                 else {

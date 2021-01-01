@@ -194,6 +194,26 @@ public class ResponseHandler {
         return httpResponse;
     }
 
+    public String responseStatsGET(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "This is the Users Stats: \n";
+        return httpResponse;
+    }
+
+    public String responseScoreGET(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "This is the Scoreboard: \n";
+        return httpResponse;
+    }
+
     public String testingJson() throws JsonProcessingException {
         JSONObject jo = new JSONObject();
         jo.put("firstName", "John");
@@ -216,6 +236,16 @@ public class ResponseHandler {
                 + "Server: Alec \r\n"
                 + "Status: 404 \r\n"
                 + "Content-Lenght: 32 \r\n\r\n" + json2;
+        return httpResponse;
+    }
+
+    public String responseErrorPATH(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "INVALID PATH... Try again";
         return httpResponse;
     }
 

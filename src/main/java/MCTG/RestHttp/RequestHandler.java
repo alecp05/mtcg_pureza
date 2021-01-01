@@ -3,6 +3,7 @@ package MCTG.RestHttp;
 import MCTG.Cards.CardHandler;
 import MCTG.Cards.DeckHandler;
 import MCTG.Shop.PackageHandler;
+import MCTG.Users.StatsAndScoreHandler;
 import MCTG.Users.UserHandling;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ public class RequestHandler {
         PackageHandler packages = new PackageHandler();
         CardHandler cards = new CardHandler();
         DeckHandler deck = new DeckHandler();
+        StatsAndScoreHandler statsAndScore = new StatsAndScoreHandler();
         ResponseHandler responder = new ResponseHandler();
 
             //USER REGISTRATION AND LOGIN
@@ -162,12 +164,29 @@ public class RequestHandler {
                 }
 
             }
-            //edit User Data
+            //show Stats of User
             else if(path.equals("/stats")&& method.equals("GET")){
 
                 //check if Token is given (Header)
                 if(headers.size()!=2){
-                    System.out.println("stats");
+                    System.out.println("Stats will be shown...");
+                    String allInfo = statsAndScore.showStats(headers);
+                    String httpResponse = responder.responseStatsGET() + allInfo;
+                    client.getOutputStream().write(httpResponse.getBytes(StandardCharsets.UTF_8));
+                }else{
+                    client.getOutputStream().write(responder.responseErrorStats().getBytes(StandardCharsets.UTF_8));
+                }
+
+            }
+            //show Scoreboard
+            else if(path.equals("/score")&& method.equals("GET")){
+
+                //check if Token is given (Header)
+                if(headers.size()!=2){
+                    System.out.println("Scoreboard will be shown...");
+                    String allInfo = statsAndScore.showScoreboard();
+                    String httpResponse = responder.responseScoreGET() + allInfo;
+                    client.getOutputStream().write(httpResponse.getBytes(StandardCharsets.UTF_8));
                 }else{
                     client.getOutputStream().write(responder.responseErrorStats().getBytes(StandardCharsets.UTF_8));
                 }
@@ -177,6 +196,8 @@ public class RequestHandler {
             else if(path.equals("/TESTING")&& method.equals("POST")){
                 client.getOutputStream().write(responder.testingJson().getBytes(StandardCharsets.UTF_8));
                 client.getOutputStream().flush();
+            }else{
+                client.getOutputStream().write(responder.responseErrorPATH().getBytes(StandardCharsets.UTF_8));
             }
 
     }

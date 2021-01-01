@@ -784,12 +784,12 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <StartupTime>1609406923</StartupTime>
+      <StartupTime>1609507041</StartupTime>
     </root>
     <database id="2" parent="1" name="mtcgDatabase">
       <ObjectId>16418</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>844</IntrospectionStateNumber>
+      <IntrospectionStateNumber>867</IntrospectionStateNumber>
     </database>
     <database id="3" parent="1" name="postgres">
       <ObjectId>13442</ObjectId>
@@ -869,7 +869,7 @@ UC/10
 </Acl>
       <StateNumber>287</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>845</IntrospectionStateNumber>
+      <IntrospectionStateNumber>868</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="19" parent="2" name="plpgsql">
@@ -1117,9 +1117,9 @@ UC/10
       <StateNumber>712</StateNumber>
     </table>
     <table id="50" parent="18" name="users">
-      <ObjectId>16433</ObjectId>
+      <ObjectId>32825</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>596</StateNumber>
+      <StateNumber>866</StateNumber>
     </table>
     <column id="51" parent="47" name="username">
       <Position>1</Position>
@@ -1290,42 +1290,54 @@ UC/10
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>596</StateNumber>
+      <StateNumber>866</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="76" parent="50" name="password">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>596</StateNumber>
+      <StateNumber>866</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="77" parent="50" name="coins">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>596</StateNumber>
+      <StateNumber>866</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="78" parent="50" name="elo">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>596</StateNumber>
+      <StateNumber>866</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="79" parent="50" name="bio">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>596</StateNumber>
+      <StateNumber>866</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="80" parent="50" name="image">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>596</StateNumber>
+      <StateNumber>866</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="81" parent="50" name="users_pkey">
-      <ObjectId>16439</ObjectId>
-      <StateNumber>596</StateNumber>
+    <column id="81" parent="50" name="wins">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>866</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="82" parent="50" name="losses">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>866</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="83" parent="50" name="users_pkey">
+      <ObjectId>32831</ObjectId>
+      <StateNumber>866</StateNumber>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1334,9 +1346,9 @@ UC/10
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="82" parent="50" name="users_pkey">
-      <ObjectId>16440</ObjectId>
-      <StateNumber>596</StateNumber>
+    <key id="84" parent="50" name="users_pkey">
+      <ObjectId>32832</ObjectId>
+      <StateNumber>866</StateNumber>
       <ColNames>username</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>

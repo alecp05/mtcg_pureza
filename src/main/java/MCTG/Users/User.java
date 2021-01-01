@@ -7,6 +7,8 @@ public class User {
     private int Elo;
     private String Bio;
     private String Image;
+    private String Wins;
+    private String Losses;
 
     public User(String name, String password){
         this.Username = name;
@@ -37,5 +39,13 @@ public class User {
 
     public String getImage() {
         return Image;
+    }
+
+    public String getWins() {
+        return Wins;
+    }
+
+    public String getLosses() {
+        return Losses;
     }
 }
