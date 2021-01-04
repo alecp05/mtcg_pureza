@@ -4,6 +4,7 @@ import MCTG.Battle.BattleHandler;
 import MCTG.Cards.CardHandler;
 import MCTG.Cards.DeckHandler;
 import MCTG.Shop.PackageHandler;
+import MCTG.Shop.TradingHandler;
 import MCTG.Users.StatsAndScoreHandler;
 import MCTG.Users.UserHandling;
 
@@ -25,6 +26,7 @@ public class RequestHandler {
         DeckHandler deck = new DeckHandler();
         StatsAndScoreHandler statsAndScore = new StatsAndScoreHandler();
         BattleHandler battle = new BattleHandler();
+        TradingHandler trader = new TradingHandler();
         ResponseHandler responder = new ResponseHandler();
 
             //USER REGISTRATION AND LOGIN
@@ -210,6 +212,44 @@ public class RequestHandler {
                     client.getOutputStream().write(httpResponse.getBytes(StandardCharsets.UTF_8));
                 }
                 battleCounter++;
+            }
+            //Trading
+            else if(path.equals("/tradings")&& method.equals("GET")){
+                //no TOKEN (no Header)
+                if(headers.size() == 2){
+                    client.getOutputStream().write(responder.responseErrorTradeGET().getBytes(StandardCharsets.UTF_8));
+                }else {
+                    String allTradingCards = trader.showTradingDeals();
+                    String httpResponse = responder.responseTradeGET() + allTradingCards;
+                    client.getOutputStream().write(httpResponse.getBytes(StandardCharsets.UTF_8));
+                }
+            }
+            else if(path.equals("/tradings")&& method.equals("POST")){
+                int number = trader.createTradingDeal(headers,payload);
+
+                if(number == 0){
+                    client.getOutputStream().write(responder.responseTrade1POST().getBytes(StandardCharsets.UTF_8));
+                }else{
+                    client.getOutputStream().write(responder.responseErrorTrade1POST().getBytes(StandardCharsets.UTF_8));
+                }
+            }
+            else if(path.contains("/tradings")&& method.equals("DELETE")){
+                int number = trader.deleteDeal(path,headers);
+
+                if(number == 0){
+                    client.getOutputStream().write(responder.responseTradeDELETE().getBytes(StandardCharsets.UTF_8));
+                }else{
+                    client.getOutputStream().write(responder.responseErrorTradeDELETE().getBytes(StandardCharsets.UTF_8));
+                }
+            }else if(path.contains("/tradings")&& method.equals("POST") && (path.length()>10)){
+                int number = trader.letsTrade(path, headers, payload);
+
+                if(number == 0){
+                    client.getOutputStream().write(responder.responseTrade2POST().getBytes(StandardCharsets.UTF_8));
+                }else{
+                    client.getOutputStream().write(responder.responseErrorTrade1POST().getBytes(StandardCharsets.UTF_8));
+                }
+
             }
 
             else if(path.equals("/TESTING")&& method.equals("POST")){

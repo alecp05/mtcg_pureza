@@ -267,5 +267,73 @@ public class ResponseHandler {
                 + "Content-Lenght: 32 \r\n\r\n";
         return httpResponse;
     }
+    public String responseErrorTradeGET(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "No Token is given... Try again\n";
+        return httpResponse;
+    }
+    public String responseTradeGET(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n";
+        return httpResponse;
+    }
+    public String responseTrade1POST(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "The Deal has been set and is now available for other Players...\n";
+        return httpResponse;
+    }
+
+    public String responseErrorTrade1POST(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "The User has no Permission to trade this Card...\n";
+        return httpResponse;
+    }
+
+    public String responseTradeDELETE(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "The Deal has now been deleted...\n";
+        return httpResponse;
+    }
+
+    public String responseErrorTradeDELETE(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "The Deal could not been deleted... User has no rights to Delete this Deal\n";
+        return httpResponse;
+    }
+
+    public String responseTrade2POST(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "The Deal has been successful, the Users exchanged their Cards...\n";
+        return httpResponse;
+    }
+
 
 }

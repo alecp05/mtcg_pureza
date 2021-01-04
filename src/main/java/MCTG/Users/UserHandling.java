@@ -47,13 +47,14 @@ public class UserHandling {
         if(count==0){
             try(Connection connection = DriverManager.getConnection(
                     "jdbc:postgresql://localhost:5432/mtcgDatabase", "postgres", "alecUser");
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO users VALUES(?,?,?,?);")
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO users (username,password,coins, elo, accName) VALUES(?,?,?,?,?);")
             ){
                 //statement.setInt(1,13);
                 statement.setString(1, user1.getUsername());
                 statement.setString(2, user1.getPassword());
                 statement.setInt(3, user1.getCoins());
                 statement.setInt(4, user1.getElo());
+                statement.setString(5, user1.getUsername());
                 statement.execute();
                 return 0;
             } catch (SQLException ex) {
@@ -153,7 +154,7 @@ public class UserHandling {
 
             while(myRs.next()) {
 
-                String userName = myRs.getString(1);
+                String userName = myRs.getString(9);
                 int coins = myRs.getInt(3);
                 String bio = myRs.getString(5);
                 String image = myRs.getString(6);
@@ -202,7 +203,7 @@ public class UserHandling {
 
         try(Connection connection = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/mtcgDatabase", "postgres", "alecUser");
-            PreparedStatement statement = connection.prepareStatement("UPDATE users SET userName = ?, bio = ?, image = ? WHERE userName = ?;");
+            PreparedStatement statement = connection.prepareStatement("UPDATE users SET accName = ?, bio = ?, image = ? WHERE userName = ?;");
         ){
             statement.setString(1, user02.getUsername());
             statement.setString(2, user02.getBio());
