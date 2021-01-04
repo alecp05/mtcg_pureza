@@ -1,5 +1,6 @@
 package MCTG.RestHttp;
 
+import MCTG.Battle.BattleHandler;
 import MCTG.Cards.CardHandler;
 import MCTG.Cards.DeckHandler;
 import MCTG.Shop.PackageHandler;
@@ -12,6 +13,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class RequestHandler {
+    private static int battleCounter = 1;
+    private static String Player1;
+    private static String Player2;
 
     public static void pathsHandling(String path, String method, String payload, List<String> headers, Socket client) throws IOException {
 
@@ -20,6 +24,7 @@ public class RequestHandler {
         CardHandler cards = new CardHandler();
         DeckHandler deck = new DeckHandler();
         StatsAndScoreHandler statsAndScore = new StatsAndScoreHandler();
+        BattleHandler battle = new BattleHandler();
         ResponseHandler responder = new ResponseHandler();
 
             //USER REGISTRATION AND LOGIN
@@ -191,6 +196,20 @@ public class RequestHandler {
                     client.getOutputStream().write(responder.responseErrorStats().getBytes(StandardCharsets.UTF_8));
                 }
 
+            }
+            //BATTLE!!!
+            else if(path.equals("/battles")&& method.equals("POST")){
+                if((battleCounter % 2 == 1)){
+                    Player1 = battle.getPlayersName(headers);
+                    client.getOutputStream().write(responder.responseBattle1POST().getBytes(StandardCharsets.UTF_8));
+                }else{
+                    Player2 = battle.getPlayersName(headers);
+                    System.out.println(Player1 + " vs "+ Player2);
+                    String battleLog = battle.letsBattle(Player1,Player2);
+                    String httpResponse = responder.responseBattle2POST() + battleLog;
+                    client.getOutputStream().write(httpResponse.getBytes(StandardCharsets.UTF_8));
+                }
+                battleCounter++;
             }
 
             else if(path.equals("/TESTING")&& method.equals("POST")){

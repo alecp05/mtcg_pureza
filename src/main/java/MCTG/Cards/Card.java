@@ -37,4 +37,8 @@ public class Card {
     public String getCardType() {
         return cardType;
     }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
 }

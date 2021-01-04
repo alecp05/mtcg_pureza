@@ -249,4 +249,23 @@ public class ResponseHandler {
         return httpResponse;
     }
 
+    public String responseBattle1POST(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "Waiting for another Player... \n";
+        return httpResponse;
+    }
+    public String responseBattle2POST(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n";
+        return httpResponse;
+    }
+
 }

@@ -2,37 +2,19 @@ package MCTG;
 
 import MCTG.Cards.Card;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Player {
     private String username;
-    private String password;
-    //private Card[] cardStack;
-    private LinkedList<Card> cardStack;
-    private int coins;
-    //private Card[] deck;
-    private LinkedList<Card> deck;
-    private String elo;
+    private ArrayList<Card> deck;
 
-    public Player(String username){
-        this.username = username;
-        this.coins = 100;
-        this.elo = "Bronze";
-    }
 
     public String getUsername() {
         return username;
     }
 
-    public int getCoins() {
-        return coins;
-    }
 
-    public String getElo() {
-        return elo;
-    }
-
-    public void setDeck(LinkedList<Card> deck1) {
+    public void setDeck(ArrayList<Card> deck1) {
         this.deck = deck1;
     }
 

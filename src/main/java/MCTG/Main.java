@@ -90,7 +90,7 @@ public class Main {
 
             System.out.println(requestClient.getPath());
 
-            if(usedMethod.equals("POST") || usedMethod.equals("PUT")){
+            if((usedMethod.equals("POST") || usedMethod.equals("PUT")) && !requestClient.getPath().contains("battles")){
                 int counter = Integer.parseInt(requestClient.getContentLength());
                 int value;
                 //saving payload by characters
@@ -108,6 +108,7 @@ public class Main {
 
         RequestHandler handlingR = new RequestHandler();
         handlingR.pathsHandling(requestClient.getPath(),requestClient.getMethod(),requestClient.getPayload(),requestClient.getHeaders(),client);
+
 
 
         client.close();

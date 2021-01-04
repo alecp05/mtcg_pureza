@@ -121,7 +121,7 @@ public class DeckHandler {
                             statement4.setString(3, card1.getCardName());
                             statement4.setInt(4, card1.getDamage());
                             statement4.setString(5, card1.getElementType());
-                            statement4.setString(6, card1.getElementType());
+                            statement4.setString(6, card1.getCardType());
                             statement4.execute();
 
                         }
