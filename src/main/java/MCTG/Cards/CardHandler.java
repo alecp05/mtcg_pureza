@@ -2,13 +2,12 @@ package MCTG.Cards;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.sql.*;
 import java.util.List;
 
 public class CardHandler {
+
     public static String showCards(List<String> headers){
         String allCards = null;
         int counter = 0;

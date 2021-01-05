@@ -1,8 +1,5 @@
 package MCTG.Cards;
 
-import MCTG.Enums.CardType;
-import MCTG.Enums.ElementType;
-
 public class Card {
     private String cardId;
     private String cardName;

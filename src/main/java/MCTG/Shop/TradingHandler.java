@@ -12,7 +12,6 @@ import java.util.List;
 public class TradingHandler {
 
         public static String showTradingDeals(){
-
             String allTradingCards = null;
             int counter = 0;
 

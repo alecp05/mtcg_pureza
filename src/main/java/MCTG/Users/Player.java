@@ -1,4 +1,4 @@
-package MCTG;
+package MCTG.Users;
 
 import MCTG.Cards.Card;
 
@@ -11,7 +11,6 @@ public class Player {
     public String getUsername() {
         return username;
     }
-
     public void setDeck(ArrayList<Card> deck1) {
         this.deck = deck1;
     }

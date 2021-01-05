@@ -1,12 +1,9 @@
 package MCTG.RestHttp;
 
-import MCTG.Cards.Card;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 public class ResponseHandler {
+
+    //------ THESE ARE ALL RESPONSES WITH SPECIFIED MESSAGES ----------
+
     public String responseRegistrationPOST(){
         String response = "POST Request SUCCESS\nUser is now in the Database";
         String httpResponse = "HTTP/1.1 201 Created\r\n"
@@ -214,31 +211,6 @@ public class ResponseHandler {
         return httpResponse;
     }
 
-    public String testingJson() throws JsonProcessingException {
-        JSONObject jo = new JSONObject();
-        jo.put("firstName", "John");
-        jo.put("lastName", "Doe");
-
-        JSONArray ja = new JSONArray();
-        ja.put(jo);
-
-        ObjectMapper mapper = new ObjectMapper();
-        Card staff = new Card("hey","lol",12,"heys","his");
-        // pretty print
-        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(staff);
-        String json2 = json + json;
-
-        System.out.println(json);
-
-        String httpResponse = "HTTP/1.1 404 not Found\r\n"
-                + "Content-Type: application/json\r\n"
-                + "Accept-Ranges: bytes \r\n"
-                + "Server: Alec \r\n"
-                + "Status: 404 \r\n"
-                + "Content-Lenght: 32 \r\n\r\n" + json2;
-        return httpResponse;
-    }
-
     public String responseErrorPATH(){
         String httpResponse = "HTTP/1.1 404 not Found\r\n"
                 + "Content-Type: text/html\r\n"
@@ -332,6 +304,34 @@ public class ResponseHandler {
                 + "Server: Alec \r\n"
                 + "Status: 201 \r\n"
                 + "Content-Lenght: 32 \r\n\r\n" + "The Deal has been successful, the Users exchanged their Cards...\n";
+        return httpResponse;
+    }
+
+    public String responseTreasurePOST(){
+        String httpResponse = "HTTP/1.1 202 OK\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 201 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "User has added the Bonus Coins from the TreasureBox into his account...\n";
+        return httpResponse;
+    }
+    public String responseErrorTreasure2POST(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "User has not enough Wins for a TreasureBox...\n";
+        return httpResponse;
+    }
+    public String responseErrorTreasure1POST(){
+        String httpResponse = "HTTP/1.1 404 not Found\r\n"
+                + "Content-Type: text/html\r\n"
+                + "Accept-Ranges: bytes \r\n"
+                + "Server: Alec \r\n"
+                + "Status: 404 \r\n"
+                + "Content-Lenght: 32 \r\n\r\n" + "User has already taken the TreasureBox for the given WinsAmount...\n";
         return httpResponse;
     }
 

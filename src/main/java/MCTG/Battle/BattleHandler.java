@@ -205,7 +205,7 @@ public class BattleHandler {
 
         }
 
-        //determine winner by returned int
+        //determine winner by returned int and update the stats
         if(winner == 1){
 
             battleLog = battleLog + "\nTHE WINNER IS... " + PlayerOne + "\nRounds played: " + countRounds + "\n";

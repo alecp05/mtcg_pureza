@@ -5,6 +5,7 @@ import MCTG.Cards.CardHandler;
 import MCTG.Cards.DeckHandler;
 import MCTG.Shop.PackageHandler;
 import MCTG.Shop.TradingHandler;
+import MCTG.Shop.TreasureHandling;
 import MCTG.Users.StatsAndScoreHandler;
 import MCTG.Users.UserHandling;
 
@@ -27,6 +28,7 @@ public class RequestHandler {
         StatsAndScoreHandler statsAndScore = new StatsAndScoreHandler();
         BattleHandler battle = new BattleHandler();
         TradingHandler trader = new TradingHandler();
+        TreasureHandling treasure = new TreasureHandling();
         ResponseHandler responder = new ResponseHandler();
 
             //USER REGISTRATION AND LOGIN
@@ -251,11 +253,21 @@ public class RequestHandler {
                 }
 
             }
+            //Mandatory unique Feature!
+            else if(path.equals("/treasure")&& method.equals("POST")){
+                System.out.println("get the coins");
+                int number = treasure.getTreasure(payload,headers);
 
-            else if(path.equals("/TESTING")&& method.equals("POST")){
-                client.getOutputStream().write(responder.testingJson().getBytes(StandardCharsets.UTF_8));
-                client.getOutputStream().flush();
-            }else{
+                if(number == 2){
+                    client.getOutputStream().write(responder.responseErrorTreasure2POST().getBytes(StandardCharsets.UTF_8));
+                }else if(number == 0){
+                    client.getOutputStream().write(responder.responseTreasurePOST().getBytes(StandardCharsets.UTF_8));
+                }else{
+                    client.getOutputStream().write(responder.responseErrorTreasure1POST().getBytes(StandardCharsets.UTF_8));
+                }
+
+            }
+            else{
                 client.getOutputStream().write(responder.responseErrorPATH().getBytes(StandardCharsets.UTF_8));
             }
 
